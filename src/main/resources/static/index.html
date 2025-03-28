@@ -35,7 +35,7 @@
                     document.getElementById("response").innerHTML = "Error: Unable to fetch the sequence.";
                 }
             };
-            const proxyUrl = "http://{proxy_public_ip}:{proxy_port}/lucasseq?value=" + value;
+            const proxyUrl = "http://3.87.53.99:8080/lucasseq?value=" + value;
             xhttp.open("GET", proxyUrl, true);
             xhttp.send();
         }
