@@ -13,7 +13,7 @@ public class LucasProxy {
 
     private final String[] services = {
             "http://172.31.82.52:8080",
-            "http://{service1-ip}:8080"
+            "http://172.31.83.191:8080"
     };
     private int currentService = 0;
 
