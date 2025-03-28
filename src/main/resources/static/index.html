@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lucas Sequence Calculator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Lucas Sequence Calculator</h1>
+    <form action="/lucasseq">
+        <label for="value">Enter a Number:</label><br>
+        <input type="text" id="value" name="value" placeholder="Enter a non-negative integer"><br><br>
+        <input type="button" value="Calculate" onclick="loadLucasSequence()">
+    </form> 
+    <div id="response"></div>
+
+    <script>
+        function loadLucasSequence() {
+            let value = document.getElementById("value").value;
+            if (!value || isNaN(value) || value < 0) {
+                document.getElementById("response").innerHTML = "Please enter a valid non-negative integer.";
+                return;
+            }
+
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+                if (this.status === 200) {
+                    const response = JSON.parse(this.responseText);
+                    document.getElementById("response").innerHTML = `
+                        <strong>Operation:</strong> ${response.operation}<br>
+                        <strong>Input:</strong> ${response.input}<br>
+                        <strong>Output:</strong> ${response.output}
+                    `;
+                } else {
+                    document.getElementById("response").innerHTML = "Error: Unable to fetch the sequence.";
+                }
+            };
+            const proxyUrl = "http://{proxy_public_ip}:{proxy_port}/lucasseq?value=" + value;
+            xhttp.open("GET", proxyUrl, true);
+            xhttp.send();
+        }
+    </script>
+</body>
+</html>
