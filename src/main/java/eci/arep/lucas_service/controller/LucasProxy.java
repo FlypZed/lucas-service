@@ -1,4 +1,4 @@
-package eci.arep.proxy;
+package eci.arep.lucas_service.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,8 +12,8 @@ import java.net.URL;
 public class LucasProxy {
 
     private final String[] services = {
-            "",
-            ""
+            "http://172.31.82.52:8080",
+            "http://{service1-ip}:8080"
     };
     private int currentService = 0;
 

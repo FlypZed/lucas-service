@@ -1,4 +1,4 @@
-package eci.arep.lucas_service;
+package eci.arep.lucas_service.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
