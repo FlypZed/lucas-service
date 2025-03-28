@@ -12,8 +12,8 @@ import java.net.URL;
 public class LucasProxy {
 
     private final String[] services = {
-            System.getenv("SERVICE1_URL"),
-            System.getenv("SERVICE2_URL")
+            "",
+            ""
     };
     private int currentService = 0;
 
